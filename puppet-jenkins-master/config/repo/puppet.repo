@@ -1,0 +1,14 @@
+[puppet5]
+name=Puppet 5 Repository el 6 - $basearch
+baseurl=http://yum.puppetlabs.com/puppet5/el/6/$basearch
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-puppet
+enabled=1
+gpgcheck=0
+
+[puppet5-source]
+name=Puppet 5 Repository el 6 - Source
+baseurl=http://yum.puppetlabs.com/puppet5-nightly/el/6/SRPMS
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-puppet
+failovermethod=priority
+enabled=0
+gpgcheck=0

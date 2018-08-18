@@ -1,0 +1,18 @@
+version: "3"
+services:
+  puppet-master:
+    image: puppet-master
+    hostname: master.puppet-test.com.br
+    ports:
+      - "8140:8140"
+    volumes:
+      - /d:/shared/puppet-master:/vol/shared
+
+  jenkins-master:
+    image: jenkins-puppet
+    hostname: master.jenkins-test.com.br
+    ports:
+      - "8080:8080"
+    volumes:  
+      - /d:/jenkins/:/var/jenkins_home 
+      - /d:/jenkins/docker.sock:/var/run/docker.sock
