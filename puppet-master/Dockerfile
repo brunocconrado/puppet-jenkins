@@ -9,8 +9,7 @@ LABEL version="0.1"
 COPY config/repo/puppet.repo /etc/yum.repos.d/
 #COPY config/repo/RPM-GPG-KEY-puppet /etc/pki/rpm-gpg/
 
-RUN yum clean all && \
-    yum install -y puppetserver
+RUN yum clean all && yum install -y puppetserver
 
 RUN ln -s /opt/puppetlabs/bin/puppet /usr/bin/puppet
 
@@ -33,6 +32,4 @@ EXPOSE 8140
 
 HEALTHCHECK --interval=30s --timeout=30s --start-period=5s --retries=3 CMD [ "ps aux | grep puppet | grep" ]
 
-#CMD ["/etc/init.d/puppetserver", "start", "/bin/bash"]
 CMD /etc/init.d/puppetserver start && /bin/bash
-#CMD  docker-entrypoint.sh  
